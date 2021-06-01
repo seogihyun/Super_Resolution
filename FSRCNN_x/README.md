@@ -7,17 +7,20 @@ FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 S
 ![fsrcnn](https://user-images.githubusercontent.com/72849922/120250903-bcab9880-c2ba-11eb-858a-adcb153154d4.png)  
 
 
-SRCNN은 Bicubic Interpolation으로 upscale을 먼저 한 후 convolution layer에 집어넣는 방식을 사용한 반면, FSRCNN은 Input으로 들어가는 LR 이미지를 그대로 convolution layer에 집어넣는 방식을 사용하여 convolution에서의 연산량을 줄였고, network 후반부에서 feature map의 width, height size를 키워주는 Deconvolution(transposed convolution)연산을 사용하여 HR 이미지로 만드는 것과 SRCNN의 non-linear mapping 단계를 shrinking, mapping, expanding 세 단계로 분리한 것이 가장 큰 특징임. 그 결과 SRCNN에 비해 굉장히 연산량이 줄어들어 거의 실시간에 준하는 성능을 보일 수 있음을 강조함. 또한 연산량이 줄어든 만큼 convolution layer의 개수도 늘려주면서 정확도(PSNR)도 챙길 수 있음을 보여줌.
+**FSRCNN의 큰 특징 3가지**
+- 첫째, SRCNN이 Bicubic Interpolation으로 upscale을 먼저 한 후 convolution layer에 집어넣는 방식을 사용한 반면, FSRCNN은 LR 이미지를 그대로 convolution layer에 집어넣는 방식을 사용하여 convolution에서의 연산량을 줄였음
+- 둘째, network 후반부에서 feature map의 width, height size를 키워주는 Deconvolution(transposed convolution)연산을 사용하여 HR 이미지를 만들었음.
+- 셋째, SRCNN의 non-linear mapping 단계를 shrinking, mapping, expanding 세 단계로 분리하였음. 
 
+그 결과 SRCNN에 비해 굉장히 연산량이 줄어들어 저자는 거의 실시간에 준하는 성능을 보일 수 있음을 강조하였으며, 연산량이 줄어든 만큼 convolution layer의 개수도 늘려주면서 정확도(PSNR)도 챙길 수 있음을 보여주었음.
 
-
-FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요소의 효과를 더 쉽게 배울 수 있으며,
-FSRCNN-s 모델은 FSRCNN을 경량화시킨 모델로, 미미한 차이의 성능 저하를 감수하고 속도를 더욱 향상시켰으며 이는 SRCNN 보다 훨씬 빠른 속도를 보임
 
 
 ![0_jPCy664hkmSJiVkP](https://user-images.githubusercontent.com/72849922/120270299-55a2d980-c2e4-11eb-9dc6-0c3a1298cc6d.png)
 
+FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요소의 효과를 더 쉽게 배울 수 있으며,
 
+FSRCNN-s 모델은 FSRCNN을 경량화시킨 모델로, 미미한 차이의 성능 저하를 감수하고 속도를 더욱 향상시켰으며 이는 SRCNN 보다 훨씬 빠른 속도를 보임
 
 ## FSRCNN structure
 
