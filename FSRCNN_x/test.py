@@ -6,7 +6,7 @@ import numpy as np
 import PIL.Image as pil_image
 
 from models import FSRCNN_x
-from utils import preprocess, calc_psnr
+from utils import preprocess, calc_psnr, convert_ycbcr_to_rgb
 
 
 if __name__ == '__main__':
@@ -26,10 +26,6 @@ if __name__ == '__main__':
     # (map_location=lambda storage, loc: storage) : a way of load model on CPU
     # GPU에서 학습한 weights를 CPU에서 적용
     for n, p in torch.load(args.weights_file, map_location=lambda storage, loc: storage).items():
-        print('###############')
-        print('n : ', n)
-        print('p : ', p)
-        print('###############')
         if n in state_dict.keys(): # n : index, p : parameters
             state_dict[n].copy_(p)
         else:
@@ -52,25 +48,23 @@ if __name__ == '__main__':
     bicubic.save(args.image_file.replace('.', '_new_bicubic_x{}.'.format(args.scale)))
 
     # ycbcr값
-    lr = preprocess(lr, device)
-    hr = preprocess(hr, device)
+    lr, _ = preprocess(lr, device)
+    hr, _ = preprocess(hr, device)
+    _, ycbcr = preprocess(bicubic, device)
 
     with torch.no_grad():
         preds = model(lr).clamp(0.0, 1.0)
-        print('pred.shape : ', preds.shape)
+
 
     psnr = calc_psnr(hr, preds)
     print('PSNR: {:.2f}'.format(psnr))
 
-    preds = preds.mul(255.0).cpu().numpy().squeeze(0)
-    print('pred shape: ', preds.shape)
+    preds = preds.mul(255.0).cpu().numpy().squeeze(0).squeeze(0)
 
     # output : (c,h,w) -> (h,w,c)로 변경
-    output = np.array(preds).transpose([1, 2, 0])
-    output = np.clip(output, 0.0, 255.0).astype(np.uint8)
-    print('output shape : ', output.shape)
+    output = np.array([preds, ycbcr[..., 1], ycbcr[..., 2]]).transpose([1, 2, 0])
+    output = np.clip(convert_ycbcr_to_rgb(output), 0.0, 255.0).astype(np.uint8)
     # pil image 형태로 변환 (pil file : PNG, JPEG, GIF, BMP 등을 가지고 있는 파일 포맷 라이브러리)
     output = pil_image.fromarray(output)
-
     # 저장할 파일명 변경
     output.save(args.image_file.replace('.', '_fsrcnn-x_x{}.'.format(args.scale)))
