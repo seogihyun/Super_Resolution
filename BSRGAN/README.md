@@ -153,6 +153,8 @@ Acknowledgments
 This work was partly supported by the ETH Zurich Fund (OK), a Huawei Technologies Oy (Finland) project, and an Amazon AWS grant.
 
 
-source : https://github.com/cszn/BSRGAN
+**Source**
+----------
+https://github.com/cszn/BSRGAN
 
 
