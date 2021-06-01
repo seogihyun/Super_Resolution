@@ -85,7 +85,7 @@ FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요
   - 3x3 필터
 
 
-# Prepare
+## Prepare
 - train_x2.h5
 ```bash
 python prepare.py --images_dir "./train_file" \
