@@ -6,7 +6,7 @@ FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 S
 
 ![fsrcnn](https://user-images.githubusercontent.com/72849922/120250903-bcab9880-c2ba-11eb-858a-adcb153154d4.png)  
 
-## FSRCNN 구조
+## FSRCNN structure
 
 - **1단계 : 특징 추출(feature extraction)**
   - num_channels = 1
@@ -39,7 +39,7 @@ FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 S
 # FSRCNN-x
 필자는 FSRCNN 모델을 경량화 시킨 FSRCNN-s 모델과 Optimal-FSRCNN 모델을 참고하여 FPGA에서 작동 가능한 초경량화된 FSRCNN-x 모델을 만들었음
 
-## FSRCNN-x 구조
+## FSRCNN-x structure
 - **1단계 : 특징 추출(feature extraction)**
   - num_channels = 3
   - 원본 이미지를 그대로 입력 데이터로 사용
