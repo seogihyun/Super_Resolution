@@ -30,7 +30,7 @@ class FSRCNN_x(nn.Module):
         ###########################################################################
 
         # Expanding (shrinking layer와 정반대 process)
-        self.mid_part.extend([nn.Conv2d(s, d, kernel_size=1), nn.ReLU(d)])
+        self.mid_part.extend([nn.Conv2d(s, d, kernel_size=1), nn.PReLU(d)])
         
         self.mid_part = nn.Sequential(*self.mid_part)
         
