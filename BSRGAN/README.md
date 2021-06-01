@@ -1,5 +1,3 @@
-출처 : https://github.com/cszn/BSRGAN
-
 #  [Designing a Practical Degradation Model for Deep Blind Image Super-Resolution](https://arxiv.org/pdf/2103.14006.pdf)
 [Kai Zhang](https://cszn.github.io/), Jingyun Liang, [Luc Van Gool](https://vision.ee.ethz.ch/people-details.OTAyMzM=.TGlzdC8zMjQ4LC0xOTcxNDY1MTc4.html), [Radu Timofte](http://people.ee.ethz.ch/~timofter/)  
 _[Computer Vision Lab](https://vision.ee.ethz.ch/the-institute.html), ETH Zurich, Switzerland_
@@ -154,5 +152,7 @@ Acknowledgments
 ----------
 This work was partly supported by the ETH Zurich Fund (OK), a Huawei Technologies Oy (Finland) project, and an Amazon AWS grant.
 
+
+source : https://github.com/cszn/BSRGAN
 
 
