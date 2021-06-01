@@ -85,6 +85,46 @@ FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요
   - 3x3 필터
 
 
+# Prepare
+- train_x2.h5
+```bash
+python prepare.py --images_dir "./train_file" \
+               --output_path "./output_path/train_x2.h5" \
+               --scale 2 \
+```
+- eval_x2.h5
+```bash
+python prepare.py --images_dir "./eval_file" \
+               --output_path "./output_path/eval_x2.h5" \
+               --scale 2 \
+               --eval
+```
+
+
+## Train
+```bash
+python train.py --train-file "./output_path/train_x2.h5" \
+                --eval-file "./output_path/eval_x2.h5" \
+                --outputs-dir "./outputs_dir" \
+                --scale 2 \
+                --lr 1e-3 \
+                --batch-size 128 \
+                --num-epochs 20 \
+                --num-workers 8 \
+                --seed 123                
+```
+
+## Test
+```bash
+python test.py --weights-file "outputs_dir/x2/x2_best.pth" \
+               --image-file "data/butterfly_GT.bmp" \
+               --scale 2
+```
+
+
+
+
+
 
 | 유형 | 링크 |
 |---|:---:|
