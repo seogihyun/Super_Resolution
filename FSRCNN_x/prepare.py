@@ -7,7 +7,6 @@ from utils import calc_patch_size, convert_rgb_to_y
 
 """
 - train dataset과 test dataset을 h5 파일로 만드는 작업
-- channel = 3
 """
 
 @calc_patch_size
