@@ -125,6 +125,25 @@ python test.py --weights-file "outputs_dir/x2/x2_best.pth" \
 ```
 
 
+## Result
+<table>
+    <tr>
+        <td><center>BICUBIC</center></td>
+        <td><center>FSRCNN-s x2</center></td>
+        <td><center>FSRCNN-x x2</center></td>
+    </tr>
+    <tr>
+    	<td>
+    		<center><img src="./data/butterfly_GT_new_bicubic_x2.bmp"></center>
+    	</td>
+    	<td>
+    		<center><img src="./data/butterfly_GT_fsrcnn-s_x2.bmp"></center>
+    	</td>
+    	<td>
+    		<center><img src="./data/butterfly_GT_fsrcnn-x_x2.bmp"></center>
+    	</td>
+    </tr>
+</table>
 
 
 
