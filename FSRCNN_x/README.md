@@ -63,7 +63,7 @@ FSRCNN-s 모델은 FSRCNN을 경량화시킨 모델로, 미미한 차이의 성�
 ----------------------------------------------------------------------------------------------
 
 # FSRCNN-x
-필자는 FSRCNN 모델을 경량화 시킨 FSRCNN-s 모델과 Optimal-FSRCNN 모델을 참고하여 FPGA에서 작동 가능한 초경량화된 FSRCNN-x 모델을 만들었음
+필자는 FSRCNN 모델을 경량화 시킨 FSRCNN-s 모델과 Optimal-FSRCNN 모델을 참고하여 FPGA에서 작동 가능한 초경량화된 FSRCNN-x 모델을 제안함
 
 ## FSRCNN-x structure
 - **1단계 : 특징 추출(feature extraction)**
@@ -71,7 +71,7 @@ FSRCNN-s 모델은 FSRCNN을 경량화시킨 모델로, 미미한 차이의 성�
   - 원본 이미지를 그대로 입력 데이터로 사용
   - 3x3 필터
   - d = 23
-  - s = 8
+  - s = 12
   - m = 2
 - **2단계 : 축소(shrinking)**
   - 1x1 필터
