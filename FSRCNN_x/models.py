@@ -8,7 +8,7 @@ class FSRCNN_x(nn.Module):
         - s : the number of shrinking filters
         - m : the mapping depth
     """
-    def __init__(self, scale_factor, num_channels=1, d=23, s=12, m=2):
+    def __init__(self, scale_factor, num_channels=1, d=23, s=8, m=2):
         super(FSRCNN_x, self).__init__()
         self.first_part = nn.Sequential(
             # Feature extraction (num_channels -> d)
