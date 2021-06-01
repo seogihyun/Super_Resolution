@@ -2,9 +2,22 @@
 # FSRCNN
 FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 SRCNN과 같은 정확도를 유지하면서 속도는 최대 40배 가속 됨
  
-**[Abstract]**
+## Abstract
 
 ![fsrcnn](https://user-images.githubusercontent.com/72849922/120250903-bcab9880-c2ba-11eb-858a-adcb153154d4.png)  
+
+
+
+FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요소의 효과를 더 쉽게 배울 수 있음
+
+또한 FSRCNN-s 모델은 FSRCNN을 경량화시킨 모델로, 미미한 차이의 성능 저하를 감수하고 속도를 더욱 향상시켰으며 이는 SRCNN 보다 훨씬 빠른 속도를 보임
+
+
+
+
+![0_jPCy664hkmSJiVkP](https://user-images.githubusercontent.com/72849922/120270299-55a2d980-c2e4-11eb-9dc6-0c3a1298cc6d.png)
+
+
 
 ## FSRCNN structure
 
@@ -29,10 +42,21 @@ FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 S
   - 학습시간 감소
   - 9x9 필터
 
+
+## From SRCNN to FSRCNN
+![다운로드](https://user-images.githubusercontent.com/72849922/120271517-72d8a780-c2e6-11eb-85ca-23390e02c04d.png)
+
+
+## Experiments
+![다운로드 (1)](https://user-images.githubusercontent.com/72849922/120271693-bcc18d80-c2e6-11eb-8b8a-208ba6c30feb.png)
+
+
 | 유형 | 링크 |
 |---|:---:|
 | 원본 논문 | [Accelerating the Super-Resolution Convolutional Neural Network](https://arxiv.org/abs/1608.00367) |
-| 논문 정리 |[FSRCNN](https://github.com/KHS0616/SuperResolution/blob/master/Paper/FSRCNN.md)| 
+| 논문 정리 |[FSRCNN](https://github.com/KHS0616/SuperResolution/blob/master/Paper/FSRCNN.md)|
+| 참고 자료 |[FSRCNN Review](https://sofar-sogood.tistory.com/entry/FSRCNN-%EB%A6%AC%EB%B7%B0-Accelerating-the-Super-Resolution-Convolutional-Neural-Network-ECCV-16)| 
+
 
 ----------------------------------------------------------------------------------------------
 
