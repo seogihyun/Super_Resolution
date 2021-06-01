@@ -54,8 +54,7 @@ FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요
 | 유형 | 링크 |
 |---|:---:|
 | 원본 논문 | [Accelerating the Super-Resolution Convolutional Neural Network](https://arxiv.org/abs/1608.00367) |
-| 논문 정리 |[FSRCNN](https://github.com/KHS0616/SuperResolution/blob/master/Paper/FSRCNN.md)|
-| 참고 자료 |[FSRCNN Review](https://sofar-sogood.tistory.com/entry/FSRCNN-%EB%A6%AC%EB%B7%B0-Accelerating-the-Super-Resolution-Convolutional-Neural-Network-ECCV-16)| 
+| 논문 정리 |[FSRCNN](https://github.com/KHS0616/SuperResolution/blob/master/Paper/FSRCNN.md), [FSRCNN Review](https://sofar-sogood.tistory.com/entry/FSRCNN-%EB%A6%AC%EB%B7%B0-Accelerating-the-Super-Resolution-Convolutional-Neural-Network-ECCV-16)|
 
 
 ----------------------------------------------------------------------------------------------
@@ -65,7 +64,7 @@ FSRCNN은 상대적으로 얕은 네트워크를 가지고 있어 각 구성 요
 
 ## FSRCNN-x structure
 - **1단계 : 특징 추출(feature extraction)**
-  - num_channels = 3
+  - num_channels = 1
   - 원본 이미지를 그대로 입력 데이터로 사용
   - 3x3 필터
   - d = 23
