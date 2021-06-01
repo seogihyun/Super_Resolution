@@ -5,7 +5,7 @@ import torch.backends.cudnn as cudnn
 import numpy as np
 import PIL.Image as pil_image
 
-from models import FSRCNN_s
+from models import FSRCNN_x
 from utils import preprocess, calc_psnr
 
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     cudnn.benchmark = True
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-    model = FSRCNN_s(scale_factor=args.scale).to(device)
+    model = FSRCNN_x(scale_factor=args.scale).to(device)
     
     state_dict = model.state_dict()
     
