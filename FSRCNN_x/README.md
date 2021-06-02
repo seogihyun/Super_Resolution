@@ -1,4 +1,5 @@
 
+https://velog.io/@danielseo/Computer-Vision-Super-Light-FSRCNN
 # FSRCNN
 FSRCNN은 SRCNN의 단점을 보완하고 가속시킨 네트워크로, 기존 SRCNN과 같은 정확도를 유지하면서 속도는 최대 40배 가속 됨
  
