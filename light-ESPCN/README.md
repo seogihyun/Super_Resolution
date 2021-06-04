@@ -57,9 +57,9 @@ PSNR was calculated on the Y channel.
 
 ### Set5
 
-| Eval. Mat | Scale | Paper (91) | Ours (91) |
-|-----------|-------|-------|-----------------|
-| PSNR | 3 | 32.55 | 32.88 |
+| Eval. Mat | Scale | Paper (91) | ESPCN (91) | light-ESPCN (91) |
+|-----------|-------|-------|-----------------|-----------------|
+| PSNR | 3 | 32.55 | 32.88 | 31.81 |
 
 <table>
     <tr>
