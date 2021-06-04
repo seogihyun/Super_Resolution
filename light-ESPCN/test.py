@@ -5,7 +5,7 @@ import torch.backends.cudnn as cudnn
 import numpy as np
 import PIL.Image as pil_image
 
-from models import ESPCN
+from models import ESPCN, light_ESPCN
 from utils import convert_ycbcr_to_rgb, preprocess, calc_psnr
 
 
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     cudnn.benchmark = True
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-    model = ESPCN(scale_factor=args.scale).to(device)
+    model = light_ESPCN(scale_factor=args.scale).to(device)
 
     state_dict = model.state_dict()
     for n, p in torch.load(args.weights_file, map_location=lambda storage, loc: storage).items():
