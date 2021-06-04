@@ -6,7 +6,7 @@
 <table>
     <tr>
         <td><center>Super Resolution</center></td>
-        <td><center>경량화</center></td>
+        <td><center>딥러닝 모델 경량화</center></td>
         <td><center>Object Detection</center></td>
         <td><center>드론 및 스마트카 On-Device</center></td>
     </tr>
