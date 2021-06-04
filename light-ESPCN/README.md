@@ -34,7 +34,7 @@ eval_x3.h5
 ```bash
 python prepare.py --images-dir "./datasets/eval" \
                 --output-path "./output_path/eval_x3.h5" \
-                --scale 3
+                --scale 3 \
                 --eval
 ```
 
@@ -45,12 +45,7 @@ python prepare.py --images-dir "./datasets/eval" \
 python train.py --train-file "./output_path/train_x3.h5" \
                 --eval-file "./output_path/eval_x3.h5" \
                 --outputs-dir "./output_dir" \
-                --scale 3 \
-                --lr 1e-3 \
-                --batch-size 16 \
-                --num-epochs 200 \
-                --num-workers 8 \
-                --seed 123                
+                --scale 3               
 ```
 
 ## Test
