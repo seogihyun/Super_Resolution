@@ -12,17 +12,39 @@ ESPCN의 큰 특징 2가지
 - 둘째, LR 이미지를 그대로 convolution layer에 넣고 마지막 단계에서 sub-pixel convolution layer를 이용하여 upscailing 함. 
 
 이렇게 함으로써 LR 공간에서 feature들의 특징을 뽑아내게 되고, 이는 filter size를 줄여 최종적으로 모델의 복잡성이 낮아지게 됨.
+    parser.add_argument('--images-dir', type=str, required=True)
+    parser.add_argument('--output-path', type=str, required=True)
+    parser.add_argument('--scale', type=int, default=3)
+
+## Prepare.py
+
+prepare.py를 이용하여 91-image(train), Set5(eval) dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였으며,
+.h5 파일 경로는 본인 환경에 맞게 설정하면 됨.
+
+train_x3.h5
+
+```bash
+python prepare.py --images-dir "./datasets/train" \
+                --output-path "output_path/train_x3.h5" \
+                --scale 3
+```
+
+eval_x3.h5
+
+```bash
+python prepare.py --images-dir "./datasets/eval" \
+                --output-path "./output_path/eval_x3.h5" \
+                --scale 3
+                --eval
+```
 
 ## Train
 
-prepare.py를 이용하여 91-image, Set5 dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였으며,
-.h5 파일 경로는 본인 환경에 맞게 설정하면 됨.
-
 
 ```bash
-python train.py --train-file "BLAH_BLAH/91-image_x3.h5" \
-                --eval-file "BLAH_BLAH/Set5_x3.h5" \
-                --outputs-dir "BLAH_BLAH/outputs" \
+python train.py --train-file "./output_path/train_x3.h5" \
+                --eval-file "./output_path/eval_x3.h5" \
+                --outputs-dir "./output_dir" \
                 --scale 3 \
                 --lr 1e-3 \
                 --batch-size 16 \
@@ -40,10 +62,9 @@ source 제공자의 pre-trained model을 다운로드 받고 싶으신 분들은
 | ESPCN (91) | 3 | [Download](https://www.dropbox.com/s/2fl5jz5nw9oiw1f/espcn_x3.pth?dl=0) |
 
 
-
 ```bash
-python test.py --weights-file "BLAH_BLAH/espcn_x3.pth" \
-               --image-file "data/butterfly_GT.bmp" \
+python test.py --weights-file "./output_dir/x3/best.pth" \
+               --image-file "./data/butterfly_GT.bmp" \
                --scale 3
 ```
 
