@@ -28,10 +28,16 @@
 
 </table>
 
-### 학력
+----
+
+**학력**
+```
 - 延边大学科学技术学院 (Yanbian University of Science & Technology) 졸업
 - Management Information System 전공
-
-### 경력
+```
+**경력**
+```
 - 한국드론협회 - Business Management
 - 네모파트너즈 - Business Analyst
+```
+
