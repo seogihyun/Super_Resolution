@@ -15,7 +15,7 @@ ESPCN의 큰 특징 2가지
 
 ## Prepare
 
-prepare.py를 이용하여 91-image(train), Set5(eval) dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였으며,
+train.py 실행을 위해 prepare.py를 이용하여 91-image(train), Set5(eval) dataset을 HDF5 file로 바꿔주며,\
 .h5 파일 경로는 본인 환경에 맞게 설정하면 됨.
 
 - train_x3.h5
