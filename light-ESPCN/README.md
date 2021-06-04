@@ -1,22 +1,22 @@
 # ESPCN
 
-This repository is implementation of the ["Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network"](https://arxiv.org/abs/1609.05158).
+["Real-Time Single Image and Video Super-Resolution Using an Efficient Sub-Pixel Convolutional Neural Network"](https://arxiv.org/abs/1609.05158).
 
 <center><img src="./thumbnails/fig1.png"></center>
 
-## Requirements
+ESPCN은 FSRCNN 모델과 같이 기존의 LR(Low-Resolution)이미지에서 feature extraction을 한 후 마지막 layer에서 HR(High-Resolution)으로 upscaling 시키는 방식의 모델이며, FSRCNN이 ConvTranspose2d를 이용하여 upscale을 한 반면, ESPCN은 PixelShuffle을 이용하여 upscale을 하였음.
 
-- PyTorch 1.0.0
-- Numpy 1.15.4
-- Pillow 5.4.1
-- h5py 2.8.0
-- tqdm 4.30.0
+### [Abstract]
+ESPCN의 큰 특징 2가지
+- 첫째, 3개의 convolution layer를 사용함. 
+- 둘째, LR 이미지를 그대로 convolution layer에 넣고 마지막 단계에서 sub-pixel convolution layer를 이용하여 upscailing 함. 
+
+이렇게 함으로써 LR 공간에서 feature들의 특징을 뽑아내게 되고, 이는 filter size를 줄여 최종적으로 모델의 복잡성이 낮아지게 됨.
 
 ## Train
 
-The 91-image, Set5 dataset converted to HDF5 
+prepare.py를 이용하여 91-image, Set5 dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였음.
 
-Otherwise, you can use `prepare.py` to create custom dataset.
 
 ```bash
 python train.py --train-file "BLAH_BLAH/91-image_x3.h5" \
@@ -32,13 +32,13 @@ python train.py --train-file "BLAH_BLAH/91-image_x3.h5" \
 
 ## Test
 
-Pre-trained weights can be downloaded from the links below.
+source 제공자의 pre-trained model을 다운로드 받고 싶으신 분들은 참고!
 
 | Model | Scale | Link |
 |-------|-------|------|
 | ESPCN (91) | 3 | [Download](https://www.dropbox.com/s/2fl5jz5nw9oiw1f/espcn_x3.pth?dl=0) |
 
-The results are stored in the same path as the query image.
+
 
 ```bash
 python test.py --weights-file "BLAH_BLAH/espcn_x3.pth" \
