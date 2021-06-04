@@ -32,7 +32,7 @@
 
 **학력**
 ```
-- 延边大学科学技术学院 (Yanbian University of Science & Technology) 졸업
+- 中国延边大学科学技术学院 (Yanbian University of Science & Technology) 졸업
 - Management Information System 전공
 ```
 **경력**
