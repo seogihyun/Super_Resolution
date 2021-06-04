@@ -12,9 +12,6 @@ ESPCN의 큰 특징 2가지
 - 둘째, LR 이미지를 그대로 convolution layer에 넣고 마지막 단계에서 sub-pixel convolution layer를 이용하여 upscailing 함. 
 
 이렇게 함으로써 LR 공간에서 feature들의 특징을 뽑아내게 되고, 이는 filter size를 줄여 최종적으로 모델의 복잡성이 낮아지게 됨.
-    parser.add_argument('--images-dir', type=str, required=True)
-    parser.add_argument('--output-path', type=str, required=True)
-    parser.add_argument('--scale', type=int, default=3)
 
 ## Prepare.py
 
