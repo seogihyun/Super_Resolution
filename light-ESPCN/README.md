@@ -15,7 +15,8 @@ ESPCN의 큰 특징 2가지
 
 ## Train
 
-prepare.py를 이용하여 91-image, Set5 dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였음.
+prepare.py를 이용하여 91-image, Set5 dataset을 HDF5 file로 바꿔준 뒤에 train.py 실행하였으며,
+.h5 파일 경로는 본인 환경에 맞게 설정하면 됨.
 
 
 ```bash
@@ -47,8 +48,6 @@ python test.py --weights-file "BLAH_BLAH/espcn_x3.pth" \
 ```
 
 ## Results
-
-PSNR was calculated on the Y channel.
 
 ### Set5
 
