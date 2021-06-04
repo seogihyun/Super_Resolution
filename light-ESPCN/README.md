@@ -66,7 +66,7 @@ PSNR was calculated on the Y channel.
         <td><center>Original</center></td>
         <td><center>BICUBIC x3</center></td>
         <td><center>ESPCN x3 (23.84 dB)</center></td>
-        <td><center>light-ESPCN x3 (23.78)</center></td>
+        <td><center>light-ESPCN x3 (23.78 dB)</center></td>
     </tr>
     <tr>
     	<td>
@@ -86,7 +86,7 @@ PSNR was calculated on the Y channel.
         <td><center>Original</center></td>
         <td><center>BICUBIC x3</center></td>
         <td><center>ESPCN x3 (25.32 dB)</center></td>
-        <td><center>light-ESPCN x3 (25.06)</center></td>  
+        <td><center>light-ESPCN x3 (25.06 dB)</center></td>  
     </tr>
     <tr>
     	<td>
