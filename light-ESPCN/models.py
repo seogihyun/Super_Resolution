@@ -12,7 +12,7 @@ class ESPCN(nn.Module):
             nn.Tanh(),
         )
         self.last_part = nn.Sequential(
-            nn.Conv2d(32, num_channels * (scale_factor ** 2), kernel_size=3, padding=3 // 2),
+            nn.Conv2d(32, num_channels * (scale_factor ** 2), kernel_size=3, padding=3//2),
             nn.PixelShuffle(scale_factor)
         )
 
@@ -45,7 +45,7 @@ class light_ESPCN(nn.Module):
             nn.Tanh(),
         )
         self.last_part = nn.Sequential(
-            nn.Conv2d(32, num_channels * (scale_factor ** 2), kernel_size=3, padding=3 // 2),
+            nn.Conv2d(32, num_channels * (scale_factor ** 2), kernel_size=3, padding=3//2),
             nn.PixelShuffle(scale_factor)
         )
 
