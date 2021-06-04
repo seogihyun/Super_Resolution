@@ -2,7 +2,7 @@
 - Computer Vision 분야의 Super Resolution 전문 기업에서 일하고 있는 딥러닝 엔지니어입니다.
 - https://velog.io/@danielseo
 
-## 주 관심사
+## 관심분야
 
 <table>
     <tr>
