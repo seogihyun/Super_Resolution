@@ -9,7 +9,7 @@ import torch.backends.cudnn as cudnn
 from torch.utils.data.dataloader import DataLoader
 from tqdm import tqdm
 
-from models import ESPCN
+from models import ESPCN, light_ESPCN
 from datasets import TrainDataset, EvalDataset
 from utils import AverageMeter, calc_psnr
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     torch.manual_seed(args.seed)
 
-    model = ESPCN(scale_factor=args.scale).to(device)
+    model = light_ESPCN(scale_factor=args.scale).to(device)
     criterion = nn.MSELoss()
     optimizer = optim.Adam([
         {'params': model.first_part.parameters()},
