@@ -37,7 +37,7 @@
 ```
 **경력**
 ```
-- 한국드론협회 - Business Management
-- 네모파트너즈 - Business Analyst
+- 한국드론협회  Business Management
+- 네모파트너즈  Business Analyst
 ```
 
