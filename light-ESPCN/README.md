@@ -54,14 +54,14 @@ PSNR was calculated on the Y channel.
 
 | Eval. Mat | Scale | Paper (91) | ESPCN (91) | light-ESPCN (91) |
 |-----------|-------|-------|-----------------|-----------------|
-| PSNR | 3 | 32.55 | 32.88 | 31.81 |
+| PSNR | 3 | 32.55 | 32.88 | 32.19 |
 
 <table>
     <tr>
         <td><center>Original</center></td>
         <td><center>BICUBIC x3</center></td>
         <td><center>ESPCN x3 (23.84 dB)</center></td>
-        <td><center>light-ESPCN x3 (23.78 dB)</center></td>
+        <td><center>light-ESPCN x3 (23.82 dB)</center></td>
     </tr>
     <tr>
     	<td>
@@ -81,7 +81,7 @@ PSNR was calculated on the Y channel.
         <td><center>Original</center></td>
         <td><center>BICUBIC x3</center></td>
         <td><center>ESPCN x3 (25.32 dB)</center></td>
-        <td><center>light-ESPCN x3 (25.06 dB)</center></td>  
+        <td><center>light-ESPCN x3 (25.36 dB)</center></td>  
     </tr>
     <tr>
     	<td>
