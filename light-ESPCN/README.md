@@ -14,12 +14,7 @@ This repository is implementation of the ["Real-Time Single Image and Video Supe
 
 ## Train
 
-The 91-image, Set5 dataset converted to HDF5 can be downloaded from the links below.
-
-| Dataset | Scale | Type | Link |
-|---------|-------|------|------|
-| 91-image | 3 | Train | [Download](https://www.dropbox.com/s/4mv1v4qfjo17zg3/91-image_x3.h5?dl=0) |
-| Set5 | 3 | Eval | [Download](https://www.dropbox.com/s/9qlb94in1iqh6nf/Set5_x3.h5?dl=0) |
+The 91-image, Set5 dataset converted to HDF5 
 
 Otherwise, you can use `prepare.py` to create custom dataset.
 
