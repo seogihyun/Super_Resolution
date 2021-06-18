@@ -4,6 +4,15 @@ This repository is implementation of the ["Image Super-Resolution Using Dense Sk
 
 <center><img src="./thumbnails/fig1.png"></center>
 
+## SRDenseNet Structure Summary 5단계
+- 1단계, 처음 Convolution Layer에서 low level features 추출
+- 2단계, Dense block에서 Densely Skip Connection 방식을 통해 high level features 추출
+- 3단계, Bottleneck layer를 통해 feature 수 절감
+- 4단계, Deconvolution layers를 통해 upscaling
+- 5단계, Reconstruction layer를 통해 SR image 복원
+
+[더보기](https://velog.io/@danielseo/Computer-Vision-SRDenseNet)
+
 ## Requirements
 
 - PyTorch 1.0.0
@@ -14,14 +23,6 @@ This repository is implementation of the ["Image Super-Resolution Using Dense Sk
 
 ## Train
 
-The coco2017 50K, Set5 dataset converted to HDF5 can be downloaded from the links below.
-
-| Dataset | Scale | Type | Link |
-|---------|-------|------|------|
-| coco2017 50K | 4 | Train | [Download](https://www.dropbox.com/s/9fg2oxxezwrspcg/coco2017_x4.h5?dl=0) |
-| Set5 | 4 | Eval | [Download](https://www.dropbox.com/s/dkcwr71tqanvyv7/Set5_x4.h5?dl=0) |
-
-Otherwise, you can use `prepare.py` to create custom dataset.
 
 ```bash
 python train.py --train-file "BLAH_BLAH/coco2017_x4.h5" \
@@ -37,13 +38,6 @@ python train.py --train-file "BLAH_BLAH/coco2017_x4.h5" \
 
 ## Test
 
-Pre-trained weights can be downloaded from the links below.
-
-| Model | Scale | Link |
-|-------|-------|------|
-| SRDenseNet_All | 4 | [Download](https://www.dropbox.com/s/wbzynzew6k2e7gc/srdensenet_x4.pth?dl=0) |
-
-The results are stored in the same path as the query image.
 
 ```bash
 python test.py --weights-file "BLAH_BLAH/srdensenet_x4.pth" \
