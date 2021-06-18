@@ -18,9 +18,9 @@
 
 
 ```bash
-python train.py --train-file "BLAH_BLAH/coco2017_x4.h5" \
-                --eval-file "BLAH_BLAH/Set5_x4.h5" \
-                --outputs-dir "BLAH_BLAH/outputs" \
+python train.py --train-file "./data_file/train_x4.h5" \
+                --eval-file "./data_file/eval_x4.h5" \
+                --outputs-dir "./outputs" \
                 --scale 4 \  # Only scale factor 4 can be used.
                 --lr 1e-4 \
                 --batch-size 16 \
@@ -33,7 +33,7 @@ python train.py --train-file "BLAH_BLAH/coco2017_x4.h5" \
 
 
 ```bash
-python test.py --weights-file "BLAH_BLAH/srdensenet_x4.pth" \
+python test.py --weights-file "./outputs/x4/srdensenet_x4.pth" \
                --image-file "data/ppt3.bmp" \
                --scale 4
 ```
