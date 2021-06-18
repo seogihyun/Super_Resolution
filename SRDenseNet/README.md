@@ -47,45 +47,4 @@ python test.py --weights-file "BLAH_BLAH/srdensenet_x4.pth" \
 
 ## Results
 
-PSNR was calculated on the Y channel.
-
-### Set5
-
-| Eval. Mat | Scale | SRDenseNet_All (Paper) | SRDenseNet_All (Ours) |
-|-----------|-------|-------|-----------------|
-| PSNR | 4 | 32.02 | 31.80 |
-
-<table>
-    <tr>
-        <td><center>Original</center></td>
-        <td><center>BICUBIC x4</center></td>
-        <td><center>SRDenseNet x4 (22.94 dB)</center></td>
-    </tr>
-    <tr>
-    	<td>
-    		<center><img src="./data/img_052.png""></center>
-    	</td>
-    	<td>
-    		<center><img src="./data/img_052_bicubic_x4.png"></center>
-    	</td>
-    	<td>
-    		<center><img src="./data/img_052_srdensenet_x4.png"></center>
-    	</td>
-    </tr>
-    <tr>
-        <td><center>Original</center></td>
-        <td><center>BICUBIC x4</center></td>
-        <td><center>SRDenseNet x4 (27.19 dB)</center></td>
-    </tr>
-    <tr>
-    	<td>
-    		<center><img src="./data/ppt3.bmp""></center>
-    	</td>
-    	<td>
-    		<center><img src="./data/ppt3_bicubic_x4.bmp"></center>
-    	</td>
-    	<td>
-    		<center><img src="./data/ppt3_srdensenet_x4.bmp"></center>
-    	</td>
-    </tr>      
-</table>
+![](https://images.velog.io/images/danielseo/post/a4ddc75f-d860-4dad-b0ff-6a6b644d1f8a/result.PNG)![](https://images.velog.io/images/danielseo/post/a4e02970-5d8b-40bc-a985-d80db475be4f/result2.PNG)
