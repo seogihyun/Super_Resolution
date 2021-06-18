@@ -13,13 +13,6 @@
 
 [더보기](https://velog.io/@danielseo/Computer-Vision-SRDenseNet)
 
-## Requirements
-
-- PyTorch 1.0.0
-- Numpy 1.15.4
-- Pillow 5.4.1
-- h5py 2.8.0
-- tqdm 4.30.0
 
 ## Train
 
