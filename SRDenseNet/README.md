@@ -34,7 +34,7 @@ python train.py --train-file "./data_file/train_x4.h5" \
 
 ```bash
 python test.py --weights-file "./outputs/x4/srdensenet_x4.pth" \
-               --image-file "data/ppt3.bmp" \
+               --image-file "./data/ppt3.bmp" \
                --scale 4
 ```
 
