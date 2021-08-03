@@ -37,6 +37,7 @@
 ```
 **경력**
 ```
+- 에스프레소미디어 Deep Learning Research Engineer
 - 한국드론협회  Business Management
 - 네모파트너즈  Business Analyst
 ```
