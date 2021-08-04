@@ -338,9 +338,6 @@ class img2data(object):
         """
         np.savez(save_path,lr = self.lrRGBY, hr = self.hrRGBY)   
 
- import numpy as np
-import torch
-
 
 def PSNR(im,gt,shave_border=0):
     """
