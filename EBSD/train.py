@@ -10,7 +10,7 @@ import torchvision.utils as vutils
 from torch import nn
 from torch.cuda import amp
 from torch.utils.data.dataloader import DataLoader
-from model import EBSD
+from model import EBSD, SRResNet_RGBY
 from dataset import Dataset
 from utils import AverageMeter, ProgressMeter, calc_psnr, preprocess
 from PIL import Image
