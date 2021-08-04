@@ -1,5 +1,6 @@
 import argparse
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '6'
 import copy
 import logging
 import torch
@@ -15,12 +16,12 @@ from utils import AverageMeter, ProgressMeter, calc_psnr, preprocess
 from PIL import Image
 
 
-# 에스파 테스트 이미지 경로 설정
-test_image_path = 'examples/aespa.png'
-# 에스파 테스트 이미지 불러오기
-test_image = Image.open(test_image_path).convert('RGB')
-# 에스파 테스트 이미지 전처리
-test_image = preprocess(test_image)
+# # 에스파 테스트 이미지 경로 설정
+# test_image_path = 'examples/aespa.png'
+# # 에스파 테스트 이미지 불러오기
+# test_image = Image.open(test_image_path).convert('RGB')
+# # 에스파 테스트 이미지 전처리
+# test_image = preprocess(test_image)
 
 
 
@@ -37,8 +38,10 @@ if __name__ == '__main__':
     parser.add_argument('--weights_file', type=str)
     parser.add_argument('--scale', type=int, default=4)
     parser.add_argument('--lr', type=float, default=0.0005)
-    parser.add_argument('--batch_size', type=int, default=64)
+    parser.add_argument('--patch_size', type=int, default=64)
+    parser.add_argument('--batch_size', type=int, default=40)
     parser.add_argument('--num_epochs', type=int, default=50000)
+    parser.add_argument('--num_channels', type=int, default=3)
     parser.add_argument('--num_workers', type=int, default=8)
     parser.add_argument('--seed', type=int, default=123)
     parser.add_argument('--checkpoint-file', type=str, default='checkpoint-file.pth')
@@ -53,13 +56,12 @@ if __name__ == '__main__':
         os.makedirs(args.outputs_dir)
 
     cudnn.benchmark = True
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-
+    device = torch.device('cuda:6' if torch.cuda.is_available() else 'cpu')
     torch.manual_seed(args.seed)
 
     model = EBSD().to(device)
     criterion = nn.L1Loss()
-    optimizer = optim.Adam(model.parameters(), args.psnr_lr, (0.9, 0.999))
+    optimizer = optim.Adam(model.parameters(), args.lr, (0.9, 0.999))
 
 
     # 체크포인트 weight 불러오기
@@ -71,22 +73,6 @@ if __name__ == '__main__':
         loss = checkpoint['loss']
         best_psnr = checkpoint['best_psnr']
 
-    # 로그 인포 프린트 하기
-    logger.info(
-                f"SRDenseNet MODEL INFO:\n"
-                f"\tNumber of channels:            {args.num_channels}\n"
-                f"\tScale:                         {args.scale}\n"
-
-                f"SRDenseNet TRAINING INFO:\n"
-                f"\tTotal Epoch:                   {args.num_epochs}\n"
-                f"\tStart Epoch:                   {start_epoch}\n"
-                f"\tTrain directory path:          {args.train_file}\n"
-                f"\tTest directory path:           {args.eval_file}\n"
-                f"\tOutput weights directory path: {args.outputs_dir}\n"
-                f"\tPSNR learning rate:            {args.psnr_lr}\n"
-                f"\tPatch size:                    {args.patch_size}\n"
-                f"\tBatch size:                    {args.batch_size}\n"
-                )
     # 스케줄러 설정 
     psnr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
     scaler = amp.GradScaler()
@@ -147,8 +133,7 @@ if __name__ == '__main__':
         torch.save(model.state_dict(), os.path.join(args.outputs_dir, 'epoch_{}.pth'.format(epoch)))
 
         model.eval()
-        # epoch psnr reset
-        epoch_psnr = AverageMeter()
+
 
         # 테스트 Epoch 시작
         model.eval()
@@ -175,8 +160,8 @@ if __name__ == '__main__':
             }, os.path.join(args.outputs_dir, 'epoch_{}.pth'.format(epoch))
         )
 
-        """ 에스파 이미지 테스트 """
-        with torch.no_grad():
-            lr = test_image.to(device)
-            preds = model(lr)
-            vutils.save_image(preds.detach(), os.path.join(args.outputs_dir, f"PSNR_{epoch}.png"))
+        # """ 에스파 이미지 테스트 """
+        # with torch.no_grad():
+        #     lr = test_image.to(device)
+        #     preds = model(lr)
+        #     vutils.save_image(preds.detach(), os.path.join(args.outputs_dir, f"PSNR_{epoch}.png"))
