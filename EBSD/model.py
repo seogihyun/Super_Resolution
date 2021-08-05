@@ -28,12 +28,13 @@ class _Residual_Block(nn.Module):
 
 
 class EBSD(nn.Module):
-    def __init__(self):
+    def __init__(self, bn=True):
         super(EBSD, self).__init__()
 
+        self.bn = bn
         self.conv_input = nn.Conv2d(in_channels=3, out_channels=64, kernel_size=9, stride=1, padding=9//2, bias=False)
         self.relu = nn.LeakyReLU(0.2, inplace=True)
-        self.residual = self.make_layer(_Residual_Block, 16)
+        self.residual = self.make_layer(_Residual_Block, bn, 16)
         self.conv_mid = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=1, bias=False)
         self.upscale4x = nn.Sequential(
             nn.Conv2d(in_channels=64, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False),
