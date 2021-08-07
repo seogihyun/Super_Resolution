@@ -31,7 +31,7 @@ from pdb import set_trace as stx
 from PIL import Image
 from data_RGB import get_training_data, get_validation_data
 from losses import CharbonnierLoss, EdgeLoss
- 
+
 def main():
     args = parser.parse_args()
 
@@ -113,13 +113,8 @@ def main_worker(gpu, ngpus_per_node, args):
         start_epoch = checkpoint["epoch"] + 1
         loss = checkpoint["loss"]
         best_psnr = checkpoint["best_psnr"]
-
-
-    # 스케줄러 설정
-    psnr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
-    scaler = amp.GradScaler()
-
-    
+   
+    """ Dataset load """
     train_dataset = get_training_data(args.train_file, {'patch_size':args.patch_size})
     train_sampler = DistributedSampler(train_dataset)
     train_loader = DataLoader(dataset=train_dataset, batch_size=args.batch_size, shuffle=False, num_workers=8, drop_last=False, pin_memory=True, sampler=train_sampler)
